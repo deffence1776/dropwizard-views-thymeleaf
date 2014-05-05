@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title th:text="#{title}">Welcome Page</title>
+</head>
+<body>
+		<p>Welcome</p>
+		<span th:text="#{name}" value="名前用" />
+		<input type="text" th:value="${person.name}" value="ユーザさん" />
+		<span th:text="#{age}" value="年齢用" />
+		<input type="text" th:value="${person.age}" value="?才" />
+		<table border="1">
+			<tr>
+				<th><span th:text="#{name}" value="名前用" /></th>
+				<th><span th:text="#{age}" value="年齢用" /></th>
+			</tr>
+			<tr th:each="p : ${persons}">
+				<td th:text="${p.name}"></td>
+				<td th:text="${p.age}"></td>
+			</tr>
+		</table>
+	<div th:include="/footer.html::copy"></div>
+</body>
+</html>
