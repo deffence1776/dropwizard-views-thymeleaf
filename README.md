@@ -20,7 +20,7 @@ Dropwizard App:
 	@Override
 	public void initialize(Bootstrap<ExampleConfiguration> bootstrap) {
 		//set ThymeleafView Render
-		ImmutableSet<ViewRenderer> renderes= ImmutableSet.of((ViewRenderer)new com.deffence.mm.dropwizard.thymeleaf.ThymeleafViewRenderer());
+		ImmutableSet<ViewRenderer> renderes= ImmutableSet.of((ViewRenderer)new ThymeleafViewRenderer());
 		bootstrap.addBundle(new ViewBundle(renderes));
 
 	}
@@ -130,5 +130,39 @@ template example:
 </html>
 
 ```
+#Assets
+use static files 
+https://github.com/deffence1776/dropwizard-views-thymeleaf/tree/master/dropwizard-views-thymeleaf-example
 
- 
+
+```java
+public class ExampleBootstrapAppication extends Application<ExampleBootstrapConfigration>{
+
+    public static void main(String[] args) throws Exception {
+        new ExampleBootstrapAppication().run(args);
+    }
+
+    @Override
+    public void initialize(Bootstrap<ExampleBootstrapConfigration> bootstrap) {
+        ImmutableSet<ViewRenderer> renderes= ImmutableSet.of((ViewRenderer)new ThymeleafViewRenderer());
+        bootstrap.addBundle(new ViewBundle(renderes));
+
+        //configure assets。
+       bootstrap.addBundle(new AssetsBundle("/templates","/"));
+    }
+
+    @Override
+    public void run(ExampleBootstrapConfigration configuration, Environment environment)
+            throws Exception {
+
+        environment.jersey().register(new ExampleBootstrapResource());
+
+    }
+}
+
+```
+classpath:templates---index.html(templateHTMLfile)
+		    |-css
+		    |-fonts
+		    |-js
+		    
