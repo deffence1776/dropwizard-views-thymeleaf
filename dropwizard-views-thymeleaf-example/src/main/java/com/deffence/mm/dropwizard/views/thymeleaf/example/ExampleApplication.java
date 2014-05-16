@@ -1,6 +1,7 @@
 package com.deffence.mm.dropwizard.views.thymeleaf.example;
 
 
+import com.deffence.mm.dropwizard.thymeleaf.ThymeleafViewRenderer;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -19,7 +20,7 @@ public class ExampleApplication extends Application<ExampleConfiguration> {
 	
 	@Override
 	public void initialize(Bootstrap<ExampleConfiguration> bootstrap) {
-		ImmutableSet<ViewRenderer> renderes= ImmutableSet.of((ViewRenderer)new com.deffence.mm.dropwizard.thymeleaf.ThymeleafViewRenderer());
+		ImmutableSet<ViewRenderer> renderes= ImmutableSet.of((ViewRenderer)new ThymeleafViewRenderer());
 		bootstrap.addBundle(new ViewBundle(renderes));
 		
 	}
