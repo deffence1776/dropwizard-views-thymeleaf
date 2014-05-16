@@ -8,8 +8,8 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>dropwizard-views-thymeleaf-example</artifactId>
-	<name>Dropwizard Thyemeleaf Integration-example</name>
+	<artifactId>dropwizard-views-thymeleaf-example-bootstrap</artifactId>
+	<name>Dropwizard Thyemeleaf Integration with Bootstrap</name>
 
 	<dependencies>
 		<dependency>
@@ -22,7 +22,12 @@
 			<artifactId>dropwizard-views</artifactId>
 			<version>${dropwizard.version}</version>
 		</dependency>
-		<dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-assets</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
+        <dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf</artifactId>
 			<version>${thymeleaf.version}</version>
@@ -33,11 +38,6 @@
 			<artifactId>thymeleaf-testing</artifactId>
 			<version>${thymeleaf.version}</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-beanutils</groupId>
-			<artifactId>commons-beanutils</artifactId>
-			<version>1.9.1</version>
 		</dependency>
 		<dependency>
 			<groupId>io.dropwizard</groupId>
@@ -116,7 +116,7 @@
 									implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>com.deffence.mm.dropwizard.views.thymeleaf.example.ExampleApplication</mainClass>
+									<mainClass>com.deffence.mm.dropwizard.views.thymleaf.example.bootstrap.ExampleBootstrapAppication</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>

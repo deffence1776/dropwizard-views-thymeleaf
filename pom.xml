@@ -13,7 +13,8 @@
 	<modules>
 		<module>dropwizard-views-thymeleaf-core</module>
 		<module>dropwizard-views-thymeleaf-example</module>
-	</modules>
+        <module>dropwizard-views-thymeleaf-example-bootstrap</module>
+    </modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

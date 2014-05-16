@@ -9,7 +9,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>dropwizard-views-thymeleaf-core</artifactId>
-	<name>Dropwizard Thyemeleaf Integration</name>
+	<name>Dropwizard Thyemeleaf Integration-core</name>
 	<dependencies>
 		<dependency>
 			<groupId>io.dropwizard</groupId>
