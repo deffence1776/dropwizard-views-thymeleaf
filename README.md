@@ -161,8 +161,9 @@ public class ExampleBootstrapAppication extends Application<ExampleBootstrapConf
 }
 
 ```
-classpath:templates---index.html(templateHTMLfile)<br/>
-		    |-css<br/>
-		    |-fonts<br/>
+```
+classpath:templates---index.html(templateHTMLfile)
+		    |-css
+		    |-fonts
 		    |-js
-		    
+```		    
