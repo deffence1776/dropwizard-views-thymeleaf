@@ -94,7 +94,9 @@ public class ExampleResource {
 }
 
 ```
-#template
+
+#Template
+
 default location:
 classpath:/templates/something.html<br/>
     [/template/] is libraly default prefix. you can change default prefix by  ThymeleafViewRenderer's constructor. 
