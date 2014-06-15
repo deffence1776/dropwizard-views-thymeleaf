@@ -81,9 +81,9 @@
 				<directory>src/main/resources</directory>
 				<includes>
 					<include>**/*.html</include>
-                    <include>**/*.css</include>
-                    <include>**/*.js</include>
-                    <include>**/*.properties</include>
+                    　　　　　　　　　　　　<include>**/*.css</include>
+                    　　　　　　　　　　　　<include>**/*.js</include>
+                    　　　　　　　　　　　　<include>**/*.properties</include>
 				</includes>
 			</resource>
 		</resources>
