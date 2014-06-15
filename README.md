@@ -147,11 +147,14 @@ public class ExampleBootstrapAppication extends Application<ExampleBootstrapConf
 
     @Override
     public void initialize(Bootstrap<ExampleBootstrapConfigration> bootstrap) {
-        ImmutableSet<ViewRenderer> renderes= ImmutableSet.of((ViewRenderer)new ThymeleafViewRenderer());
-        bootstrap.addBundle(new ViewBundle(renderes));
+          //use static resources
+          bootstrap.addBundle(new AssetsBundle("/templates/css","/css",null,"css"));
+          bootstrap.addBundle(new AssetsBundle("/templates/js","/js",null,"js"));
+          bootstrap.addBundle(new AssetsBundle("/templates/fonts","/fonts",null,"fonts"));
 
-        //configure assets。
-       bootstrap.addBundle(new AssetsBundle("/templates","/"));
+          ImmutableSet<ViewRenderer> renderes= ImmutableSet.of((ViewRenderer)new ThymeleafViewRenderer());
+          bootstrap.addBundle(new ViewBundle(renderes));
+
     }
 
     @Override
