@@ -20,12 +20,15 @@ public class ExampleBootstrapAppication extends Application<ExampleBootstrapConf
 
     @Override
     public void initialize(Bootstrap<ExampleBootstrapConfigration> bootstrap) {
+          //
+          bootstrap.addBundle(new AssetsBundle("/templates/css","/css",null,"css"));
+          bootstrap.addBundle(new AssetsBundle("/templates/js","/js",null,"js"));
+          bootstrap.addBundle(new AssetsBundle("/templates/fonts","/fonts",null,"fonts"));
+
         ImmutableSet<ViewRenderer> renderes= ImmutableSet.of((ViewRenderer)new ThymeleafViewRenderer());
         bootstrap.addBundle(new ViewBundle(renderes));
 
-        //静的ファイルの設定。ThymeleafViewRendererのtemplateファイル配置場所を設定
-       bootstrap.addBundle(new AssetsBundle("/templates","/"));
-    }
+     }
 
     @Override
     public void run(ExampleBootstrapConfigration configuration, Environment environment)
