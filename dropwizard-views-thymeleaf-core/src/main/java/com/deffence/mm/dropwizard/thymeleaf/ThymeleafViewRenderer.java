@@ -14,54 +14,52 @@ import org.thymeleaf.TemplateEngine;
 
 public class ThymeleafViewRenderer implements ViewRenderer {
 
-		public static final  String DEFAULT_TEMPLATE_MODE ="XHTML";
-		public static final  String DEFAULT_SUFFIX =".html";
-		public static final  String DEFAULT_PREFIX ="/templates/";
-		public static final  long DEFAULT_CACHETTLMS =3600000L;
-		
-		private String templateMode;
-		private String suffix;
-		private String prefix;
-		private long cacheTTLMs;
-		
+	public static final String DEFAULT_TEMPLATE_MODE = "XHTML";
+	public static final String DEFAULT_SUFFIX = ".html";
+	public static final String DEFAULT_PREFIX = "/templates/";
+	public static final long DEFAULT_CACHETTLMS = 3600000L;
+	public static final boolean DEFAULT_CACHABLE = true;
 	
-	
+
+	private TemplateEngine engine;
+	private String suffix;
 
 	public ThymeleafViewRenderer() {
-			this(DEFAULT_TEMPLATE_MODE,DEFAULT_PREFIX,DEFAULT_SUFFIX,DEFAULT_CACHETTLMS);
-		}
+		this(DEFAULT_TEMPLATE_MODE, DEFAULT_PREFIX, DEFAULT_SUFFIX,
+				DEFAULT_CACHETTLMS,DEFAULT_CACHABLE);
+	}
 
-	public ThymeleafViewRenderer(String templateMode,String prefix, String suffix,
-				long cacheTTLMs) {
-			super();
-			this.templateMode = templateMode;
-			this.prefix = prefix;
-			this.suffix = suffix;
-			this.cacheTTLMs = cacheTTLMs;
-		}
+	public ThymeleafViewRenderer(String templateMode, String prefix,
+			String suffix, long cacheTTLMs,boolean cacheable) {
+		super();
+
+		this.suffix = suffix;
+		
+		ClassResourceTemplateResolver templateResolver = new ClassResourceTemplateResolver();
+		templateResolver.setTemplateMode(templateMode);
+		templateResolver.setCacheTTLMs(cacheTTLMs);
+		templateResolver.setPrefix(prefix);
+		templateResolver.setCacheable(cacheable);
+		engine = new TemplateEngine();
+		engine.setTemplateResolver(templateResolver);
+
+	}
 
 	@Override
 	public boolean isRenderable(View view) {
-		
+
 		return view.getTemplateName().endsWith(suffix);
 	}
 
 	@Override
 	public void render(View view, Locale locale, OutputStream output)
 			throws IOException, WebApplicationException {
-		ClassResourceTemplateResolver templateResolver = new ClassResourceTemplateResolver();
-		templateResolver.setTemplateMode(templateMode);
-        templateResolver.setCacheTTLMs(cacheTTLMs);
-        templateResolver.setPrefix(prefix);
-		TemplateEngine engine = new TemplateEngine();
-        engine.setTemplateResolver(templateResolver);
-        
-        DropWizardContext context = new DropWizardContext(view);
-        
-        OutputStreamWriter writer = new OutputStreamWriter(output);
-        engine.process(view.getTemplateName(),context,writer);
-        writer.flush();
-		
+
+		DropWizardContext context = new DropWizardContext(view);
+		OutputStreamWriter writer = new OutputStreamWriter(output);
+		engine.process(view.getTemplateName(), context, writer);
+		writer.flush();
+
 	}
 
 }
