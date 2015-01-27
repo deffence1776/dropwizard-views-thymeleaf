@@ -5,8 +5,6 @@ import java.io.InputStream;
 import org.thymeleaf.TemplateProcessingParameters;
 import org.thymeleaf.resourceresolver.IResourceResolver;
 
-import com.google.common.base.Preconditions;
-
 public class ClassResourceResolver implements IResourceResolver {
 
 	@Override
