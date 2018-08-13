@@ -3,10 +3,10 @@ dropwizard-views-thymeleaf
 
 Dropwizard のテンプレートエンジンとして、Thymeleaf Viewsを利用する
 
-#What is Thymeleaf
+# Thymeleaf
 http://www.thymeleaf.org/
 
-##Getting Started
+## Getting Started
 Dropwizard App:
 
 ```java
@@ -36,7 +36,7 @@ Dropwizard App:
 ```
 you can change the template mode,cacheTTLs,template suffix and template prefix.
 
-#View 
+# View 
 using ThymeleafView:
 
 ```java
@@ -95,7 +95,7 @@ public class ExampleResource {
 
 ```
 
-#Template
+# Template
 
 default location:
 classpath:/templates/something.html<br/>
@@ -133,7 +133,7 @@ template example:
 </html>
 
 ```
-#Assets
+# Assets
 use static files 
 https://github.com/deffence1776/dropwizard-views-thymeleaf/tree/master/dropwizard-views-thymeleaf-example
 
